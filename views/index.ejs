@@ -1,19 +1,23 @@
-<!DOCtype html>
-
+<!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>Pokédex</title>
-    </head>
-    <body>
-        <h1>Pokédex</h1>
-        <ul>
-            <% pokemons.forEach(function(pokemon) {%>
+<head>
+    <meta charset="UTF-8">
+    <title>Pokédex</title>
+</head>
+<body>
+    <h1>Pokédex</h1>
+    <ul>
+        <% pokemons.forEach(function(pokemon) { %>
             <li>
                 <a href="/pokemon/<%= pokemon.id %>"><%= pokemon.nome %></a> 
                 - <%= pokemon.tipo %>
-             </li>
-            <% }); %>
-        </ul>
-    </body>
+            </li>
+        <% }); %>
+    </ul>
+    <div>
+        <a href="/createNewPokemon">
+            <button>Cadastrar novo Pokémon</button>
+        </a>
+    </div>
+</body>
 </html>

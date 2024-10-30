@@ -1,11 +1,23 @@
-const pokemons = [
-    {id: 1, nome: 'Bulbassauro', tipo: 'Vegetal/Veneno'},
-    {id: 2, nome: 'Squirtle', tipo: 'Água'},
-    {id: 3, nome: 'Charmander', tipo: 'Fogo'},
+let pokemons = [
+    { id: 1, nome: 'Bulbasaur', tipo: 'Grama' },
+    { id: 2, nome: 'Charmander', tipo: 'Fogo' },
+    { id: 3, nome: 'Squirtle', tipo: 'Água' },
 ];
 
-const getPokemons = () => pokemons;
-const getPokemonById = (id) => pokemons.find (p => p.id === parseInt(id));
-const createPokemon = (nome, tipo) => pokemons.push (pokemons.length+1, nome, tipo);
+// Função para obter todos os Pokémon
+const getPokemons = () => {
+    return pokemons;
+};
 
-module.exports = { getPokemons, getPokemonById, createPokemon};
+// Função para obter um Pokémon por ID
+const getPokemonById = (id) => {
+    return pokemons.find(pokemon => pokemon.id === parseInt(id));
+};
+
+// Função para adicionar um novo Pokémon
+const addPokemon = (pokemon) => {
+    pokemon.id = pokemons.length + 1;
+    pokemons.push(pokemon);
+};
+
+module.exports = { getPokemons, getPokemonById, addPokemon };
