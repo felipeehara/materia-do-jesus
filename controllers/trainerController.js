@@ -1,46 +1,29 @@
-// exports.showCreateTrainerForm = (req, res) => {
-//     res.render('createNewTrainer'); // Renderiza a página de cadastro do treinador
-// };
+const trainerModel = require('../models/trainer'); // Importa o modelo de treinador
+const pokemonModel = require('../models/pokemon'); // Importa o modelo de Pokémon
 
-// exports.createTrainer = async (req, res) => {
-//     try {
-//         const { name } = req.body;
-//         await Trainer.create({ name }); // Salva no banco de dados, se houver um modelo configurado
-//         res.redirect('/'); // Redireciona para a página principal ou onde desejar
-//     } catch (error) {
-//         res.status(500).send('Erro ao cadastrar treinador');
-//     }
-// };
-
-
-
-const Trainer = require('../models/trainer');
-const { getPokemons } = require('../models/pokemon'); // Verifique se essa linha é realmente necessária
-
-// Array para simular banco de dados (se necessário)
-const trainers = [];
-
-// Exibir formulário de cadastro do treinador
-exports.showCreateTrainerForm = (req, res) => {
-    const pokemons = getPokemons(); // Verifique se esta função já foi usada antes
-    res.render('createNewTrainer', { pokemons });
+// Função para obter todos os treinadores e renderizar a lista
+const getAllTrainers = (req, res) => {
+    const trainers = trainerModel.getTrainers(); // Obtém todos os treinadores
+    res.render('trainers', { trainers }); // Renderiza a página com a lista de treinadores
 };
 
-// Criar um novo treinador
-exports.createTrainer = (req, res) => {
-    const { name, pokemonIds } = req.body;
+// Função para renderizar o formulário de criação de treinador
+const createNewTrainer = (req, res) => {
+    const pokemons = pokemonModel.getPokemons(); // Obtém todos os Pokémon para serem listados no formulário
+    res.render('createNewTrainer', { pokemons }); // Renderiza o formulário com a lista de Pokémon
+};
 
-    // Verifica se os Pokémons foram selecionados
-    if (!pokemonIds || pokemonIds.length === 0) {
-        return res.status(400).send("Selecione pelo menos um Pokémon.");
-    }
+const storeNewTrainer = (req, res) => {
+    const selectedPokemonIds = req.body.pokemons || []; // Obtém os IDs dos Pokémon selecionados
+    const selectedPokemons = selectedPokemonIds.map(id => pokemonModel.getPokemonById(id)); // Obtém os Pokémon por ID
 
-    // Cria uma lista de pokémons com base nos IDs selecionados
-    const selectedPokemons = pokemonIds.map(id => getPokemons().find(p => p.id == id));
+    const newTrainer = new trainerModel.Trainer(req.body.name, selectedPokemons); // Cria o novo treinador com os Pokémon
+    trainerModel.addTrainer(newTrainer); // Adiciona o novo treinador
+    res.redirect('/trainers'); // Redireciona para a lista de treinadores
+};
 
-    // Cria o treinador com a lista de pokémons selecionados
-    const newTrainer = new Trainer(Date.now(), name, selectedPokemons);
-    trainers.push(newTrainer);
-
-    res.redirect('/trainers'); // Redireciona para uma página que lista os treinadores, por exemplo
+module.exports = {
+    getAllTrainers,
+    createNewTrainer,
+    storeNewTrainer
 };

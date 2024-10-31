@@ -12,10 +12,13 @@ const express = require('express');
 const router = express.Router();
 const trainerController = require('../controllers/trainerController');
 
-// Rota para exibir o formulário de cadastro do treinador
-router.get('/createTrainer', trainerController.showCreateTrainerForm);
+// Rota para listar todos os treinadores
+router.get('/', trainerController.getAllTrainers);
+
+// Rota para renderizar o formulário de criação de treinador
+router.get('/createTrainer', trainerController.createNewTrainer);
 
 // Rota para processar o formulário de criação de treinador
-router.post('/submitTrainer', trainerController.createTrainer);
+router.post('/createTrainer', trainerController.storeNewTrainer);
 
 module.exports = router;

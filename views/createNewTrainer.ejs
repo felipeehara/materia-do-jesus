@@ -6,23 +6,26 @@
     <title>Cadastrar Treinador</title>
 </head>
 <body>
-    <h1>Cadastrar Treinador</h1>
-    <form action="/trainers/submitTrainer" method="post"> <!-- Atualize o caminho se necessário -->
+    <h1>Cadastrar Novo Treinador</h1>
+    <form action="/trainers/createTrainer" method="POST">
         <label for="name">Nome do Treinador:</label>
         <input type="text" id="name" name="name" required>
 
-        <h2>Escolha os Pokémons:</h2>
-        <% pokemons.forEach(pokemon => { %>
-            <div>
-                <input type="checkbox" id="pokemon-<%= pokemon.id %>" name="pokemonIds" value="<%= pokemon.id %>">
-                <label for="pokemon-<%= pokemon.id %>"><%= pokemon.nome %></label> <!-- Use o campo correto (nome) -->
-            </div>
-        <% }) %>
+        <h2>Selecione os Pokémons:</h2>
+        <% pokemons.forEach(function(pokemon) { %>
+            <input type="checkbox" id="pokemon<%= pokemon.id %>" name="pokemons" value="<%= pokemon.id %>">
+            <label for="pokemon<%= pokemon.id %>"><%= pokemon.nome %> - <%= pokemon.tipo %></label><br>
+        <% }); %>
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Cadastrar Treinador</button>
     </form>
-    <a href="/">
-        <button>Cancelar</button>
+    
+    <a href="/trainers">
+        <button>Voltar para a lista de treinadores</button>
     </a>
+    <a href="/">
+        <button>Voltar para a lista de Pokemons</button>
+    </a>
+    
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinadores</title>
+</head>
+<body>
+    <h1>Lista de Treinadores</h1>
+    <ul>
+        <% trainers.forEach(function(trainer) { %>
+            <li>
+                <strong><%= trainer.name %></strong> - Pokémon: 
+                <% if (trainer.pokemons.length > 0) { %>
+                    <%= trainer.pokemons.map(pokemon => pokemon.nome).join(', ') %>
+                <% } else { %>
+                    Nenhum Pokémon associado
+                <% } %>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/trainers/createTrainer">Cadastrar Novo Treinador</a>
+
+    <a href="/">
+        <button>Voltar</button>
+    </a>
+</body>
+</html>
