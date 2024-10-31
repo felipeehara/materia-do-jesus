@@ -2,19 +2,19 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastrar Novo Pokémon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Pokémon</title>
 </head>
 <body>
-    <h1>Cadastrar Novo Pokémon</h1>
-    <form action="/createNewPokemon" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-        
-        <label for="tipo">Tipo:</label>
-        <input type="text" id="tipo" name="tipo" required>
-        
+    <h1>Cadastrar Pokémon</h1>
+    <form action="/pokemons/createNewPokemon" method="post">
+        <label for="name">Nome do Pokémon:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="type">Tipo do Pokémon:</label>
+        <input type="text" id="type" name="type" required>
+
         <button type="submit">Cadastrar</button>
     </form>
-    <a href="/">Voltar para a Pokédex</a>
 </body>
 </html>

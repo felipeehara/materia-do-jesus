@@ -9,18 +9,18 @@
     <ul>
         <% pokemons.forEach(function(pokemon) { %>
             <li>
-                <a href="/pokemon/<%= pokemon.id %>"><%= pokemon.nome %></a> 
+                <a href="/pokemons/pokemon/<%= pokemon.id %>"><%= pokemon.nome %></a>
                 - <%= pokemon.tipo %>
             </li>
         <% }); %>
     </ul>
     <div>
-        <a href="/createNewPokemon">
+        <a href="/pokemons/createNewPokemon">
             <button>Cadastrar novo Pokémon</button>
         </a>
     </div>
     <div>
-        <a href="/createNewTrainer">
+        <a href="/trainers/createTrainer">
             <button>Cadastrar Treinador</button>
         </a>
     </div>

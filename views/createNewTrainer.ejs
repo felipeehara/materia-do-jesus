@@ -1,15 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Treinador</title>
 </head>
 <body>
     <h1>Cadastrar Treinador</h1>
-    <form action="/submitTrainer" method="post">
+    <form action="/trainers/submitTrainer" method="post"> <!-- Atualize o caminho se necessário -->
         <label for="name">Nome do Treinador:</label>
         <input type="text" id="name" name="name" required>
+
+        <h2>Escolha os Pokémons:</h2>
+        <% pokemons.forEach(pokemon => { %>
+            <div>
+                <input type="checkbox" id="pokemon-<%= pokemon.id %>" name="pokemonIds" value="<%= pokemon.id %>">
+                <label for="pokemon-<%= pokemon.id %>"><%= pokemon.nome %></label> <!-- Use o campo correto (nome) -->
+            </div>
+        <% }) %>
+
         <button type="submit">Cadastrar</button>
     </form>
 </body>
