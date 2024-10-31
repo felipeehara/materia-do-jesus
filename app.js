@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pokemonRoutes = require('./routes/pokemonRoutes');
+const trainerRoutes = require('./routes/trainerRoutes');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.static('public'));
 
 
 app.use('/', pokemonRoutes);
+app.use(trainerRoutes);
 
 const PORT = process.env.PORT || 3000;
 
