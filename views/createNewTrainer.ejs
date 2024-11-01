@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/createTrainer.css">
     <title>Cadastrar Treinador</title>
 </head>
 <body>
@@ -13,8 +14,10 @@
 
         <h2>Selecione os Pokémons:</h2>
         <% pokemons.forEach(function(pokemon) { %>
-            <input type="checkbox" id="pokemon<%= pokemon.id %>" name="pokemons" value="<%= pokemon.id %>">
-            <label for="pokemon<%= pokemon.id %>"><%= pokemon.nome %> - <%= pokemon.tipo %></label><br>
+            <div class="checkbox-group">
+                <input type="checkbox" id="pokemon<%= pokemon.id %>" name="pokemons" value="<%= pokemon.id %>">
+                <label for="pokemon<%= pokemon.id %>"><%= pokemon.nome %> - <%= pokemon.tipo %></label>
+            </div><br>
         <% }); %>
 
         <button type="submit">Cadastrar Treinador</button>
