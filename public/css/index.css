@@ -1,6 +1,3 @@
-/* index.css */
-
-/* Reset básico e estilos iniciais */
 * {
     margin: 0;
     padding: 0;
@@ -19,10 +16,10 @@ body {
 }
 
 h1 {
-    font-size: 3.5rem; /* Aumentar ainda mais o tamanho do título */
+    font-size: 3.5rem;
     color: #ffcb05;
     text-shadow: 2px 2px 5px #3b4cca;
-    margin-bottom: 30px; /* Mais espaço abaixo do título */
+    margin-bottom: 30px;
     text-align: center;
 }
 
@@ -34,15 +31,15 @@ ul {
 }
 
 li {
-    font-size: 1.8rem; /* Aumentar o tamanho da fonte dos itens */
-    padding: 15px 20px; /* Aumentar o padding para mais conforto */
+    font-size: 1.8rem;
+    padding: 15px 20px;
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff; /* Fundo branco para contraste */
-    border-radius: 5px; /* Bordas arredondadas */
-    margin-bottom: 10px; /* Espaço entre os itens */
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 li a {
@@ -56,9 +53,9 @@ li a:hover {
 }
 
 button {
-    font-size: 1.5rem; /* Aumentar o tamanho da fonte dos botões */
-    padding: 15px 25px; /* Aumentar o padding para mais conforto */
-    margin: 10px 5px; /* Margens laterais para espaçamento entre botões */
+    font-size: 1.5rem;
+    padding: 15px 25px;
+    margin: 10px 5px;
     border: none;
     background-color: #3b4cca;
     color: #fff;
@@ -73,49 +70,45 @@ button:hover {
 }
 
 div {
-    margin-top: 30px; /* Mais espaço entre as seções */
+    margin-top: 30px;
     text-align: center;
 }
 
-/* Ajustes de responsividade */
-
-/* Telas menores (tablets) */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem; /* Tamanho do título em tablets */
+        font-size: 2.5rem;
     }
 
     li {
-        font-size: 1.6rem; /* Tamanho da fonte dos itens */
-        padding: 12px 15px; /* Ajustar o padding */
+        font-size: 1.6rem;
+        padding: 12px 15px;
     }
 
     button {
-        font-size: 1.2rem; /* Tamanho do botão */
-        padding: 12px 20px; /* Ajustar padding do botão */
+        font-size: 1.2rem;
+        padding: 12px 20px;
     }
 }
 
-/* Telas muito pequenas (smartphones) */
 @media (max-width: 480px) {
     h1 {
-        font-size: 2.5rem; /* Tamanho do título em telas pequenas */
+        font-size: 2.5rem;
     }
 
     li {
-        font-size: 1.4rem; /* Tamanho da fonte dos itens */
-        padding: 10px; /* Ajustar o padding para conforto */
+        font-size: 1.4rem;
+        padding: 10px;
     }
 
     button {
-        font-size: 1.2rem; /* Tamanho do botão */
-        padding: 15px; /* Padding maior para conforto ao tocar */
-        width: 100%; /* Botões ocupam toda a largura */
-        margin: 5px 0; /* Margem entre botões */
+        font-size: 1.2rem;
+        padding: 15px;
+        width: 100%;
+        margin: 5px 0;
     }
 
     ul {
         max-width: 100%;
-        padding: 0 10px; /* Reduzindo o padding lateral */
+        padding: 0 10px;
     }
 }

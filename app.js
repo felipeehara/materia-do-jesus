@@ -7,9 +7,9 @@ const app = express();
 
 app.use(express.static('public'));
 
-// Configuração do motor de template EJS
+
 app.set('view engine', 'ejs');
-app.set('views', './views'); // Especifique o diretório onde seus arquivos .ejs estão localizados
+app.set('views', './views'); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/pokemons', pokemonRoutes);
 app.use('/trainers', trainerRoutes);
 
-// Redirecionar a raiz para a lista de Pokémons
+
 app.get('/', (req, res) => {
     res.redirect('/pokemons');
 });

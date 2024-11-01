@@ -2,33 +2,33 @@ const pokemonModel = require('../models/pokemon'); // Importa o modelo
 
 // Função para obter todos os Pokémon e renderizar a lista
 const getAllPokemons = (req, res) => {
-    const pokemons = pokemonModel.getPokemons(); // Obtém todos os Pokémon
-    res.render('index', { pokemons }); // Renderiza a página inicial com a lista de Pokémon
+    const pokemons = pokemonModel.getPokemons(); 
+    res.render('index', { pokemons }); 
 };
 
 // Função para renderizar o formulário de criação de Pokémon
 const createNewPokemon = (req, res) => {
-    const pokemons = pokemonModel.getPokemons(); // Obtém todos os Pokémon
-    res.render('createNewPokemon', { pokemons }); // Renderiza o formulário
+    const pokemons = pokemonModel.getPokemons();
+    res.render('createNewPokemon', { pokemons }); 
 };
 
 // Função para processar o formulário de criação de Pokémon
 const storeNewPokemon = (req, res) => {
     const newPokemon = {
         nome: req.body.name,
-        tipo: req.body.type // Adicione aqui a lógica para pegar o tipo se necessário
+        tipo: req.body.type 
     };
-    pokemonModel.addPokemon(newPokemon); // Adiciona o novo Pokémon
-    res.redirect('/pokemons'); // Redireciona para a lista de Pokémon
+    pokemonModel.addPokemon(newPokemon); 
+    res.redirect('/pokemons'); 
 };
 
 // Função para obter um Pokémon por ID
 const getPokemon = (req, res) => {
-    const pokemon = pokemonModel.getPokemonById(req.params.id); // Obtém o Pokémon pelo ID
+    const pokemon = pokemonModel.getPokemonById(req.params.id); 
     if (pokemon) {
-        res.render('pokemon', { pokemon }); // Renderiza a página de detalhes do Pokémon usando pokemon.ejs
+        res.render('pokemon', { pokemon }); 
     } else {
-        res.status(404).send('Pokémon não encontrado'); // Se não encontrar, retorna um erro 404
+        res.status(404).send('Pokémon não encontrado'); 
     }
 };
 
